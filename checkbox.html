@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+
+    <h2>Registration Form</h2>
+
+    <form action="/register" method="post">
+
+        <label for="name">FULL NAME</label>
+        <input type="text" name="name" id="name" required>
+        <br><br>
+
+        <label for="age">AGE</label>
+        <input type="number" name="age" id="age"
+               min="16" max="100" required>
+        <br><br>
+
+        <label for="email">EMAIL</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+
+        <label for="password">PASSWORD</label>
+        <input type="password" name="password"
+               id="password" minlength="8" required>
+        <br><br>
+
+        <label for="confirm-password">CONFIRM PASSWORD</label>
+        <input type="password" name="confirmPassword"
+               id="confirm-password" required>
+        <br><br>
+
+        <label for="phone">MOBILE NUMBER</label>
+        <input type="tel" name="phone" id="phone"
+               pattern="[0-9]{10}" required>
+        <br><br>
+
+        <p>GENDER</p>
+
+        <input type="radio" id="male" name="gender"
+               value="male" required>
+        <label for="male">Male</label>
+
+        <input type="radio" id="female" name="gender"
+               value="female">
+        <label for="female">Female</label>
+
+        <input type="radio" id="other" name="gender"
+               value="other">
+        <label for="other">Other</label>
+
+        <br><br>
+
+        <label for="course">COURSE</label>
+        <select name="course" id="course" required>
+            <option value="">Select your course</option>
+            <option value="CSE">Computer Science</option>
+            <option value="AIDS">
+                Artificial Intelligence & Data Science
+            </option>
+            <option value="CE">Civil Engineering</option>
+        </select>
+
+        <br><br>
+
+        <p>SKILL LEVEL</p>
+
+        <input type="radio" id="beginner" name="level"
+               value="beginner" required>
+        <label for="beginner">Beginner</label>
+
+        <input type="radio" id="intermediate" name="level"
+               value="intermediate">
+        <label for="intermediate">Intermediate</label>
+
+        <input type="radio" id="advanced" name="level"
+               value="advanced">
+        <label for="advanced">Advanced</label>
+
+        <br><br>
+
+        <br><br>
+
+        <button type="submit">Create Account</button>
+        <button type="reset">Clear</button>
+
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,374 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Events</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f8fc;
+            color: #183153;
+        }
+
+        /* Navbar */
+        header {
+            background: rgb(208, 194, 0);
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px #dce5ef;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            color: #5c7871;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #334155;
+            margin-left: 22px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #1684e8;
+        }
+
+        nav .active {
+            color: #1684e8;
+            font-weight: bold;
+        }
+
+        /* Hero section */
+        .hero {
+            margin: 25px auto;
+            width: 84%;
+            min-height: 280px;
+            padding: 55px 40px;
+            border-radius: 14px;
+            background: linear-gradient(110deg, #d9f8e9, #dceaff, #ffe0ed);
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 520px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #153653;
+        }
+
+        .hero p {
+            line-height: 1.7;
+            color: #475569;
+            margin-bottom: 22px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 6px;
+            background: #167ee8;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #1265b8;
+        }
+
+        /* Main content */
+        main {
+            width: 84%;
+            margin: 35px auto;
+        }
+
+        .section-title {
+            font-size: 23px;
+            margin-bottom: 20px;
+        }
+
+        /* Event cards */
+        .events {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px #dce5ef;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 155px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 18px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        .blue {
+            background: #dbeafe;
+            color: #1d65c1;
+        }
+
+        .green {
+            background: #d9fbe8;
+            color: #14804a;
+        }
+
+        .pink {
+            background: #ffe0ed;
+            color: #c02668;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #64748b;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .card .btn {
+            padding: 9px 14px;
+            font-size: 12px;
+        }
+
+        /* Categories */
+        .categories {
+            margin-top: 40px;
+        }
+
+        .category-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .category {
+            text-align: center;
+            padding: 24px 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .category span {
+            display: block;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .category:nth-child(1) {
+            background: #dbeafe;
+            color: #1769c2;
+        }
+
+        .category:nth-child(2) {
+            background: #ffe0ed;
+            color: #c02668;
+        }
+
+        .category:nth-child(3) {
+            background: #d9fbe8;
+            color: #14804a;
+        }
+
+        .category:nth-child(4) {
+            background: #fff0d6;
+            color: #b76b13;
+        }
+
+        /* Footer */
+        footer {
+            background: #122c46;
+            color: white;
+            padding: 28px 8%;
+            margin-top: 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 14px;
+            }
+
+            nav a {
+                margin: 0;
+            }
+
+            .hero, main {
+                width: 92%;
+            }
+
+            .hero {
+                padding: 35px 22px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .events {
+                grid-template-columns: 1fr;
+            }
+
+            .category-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="logo">🎓 Campus Events</div>
+
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="events.html">Events</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="register.html">Register</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover. Participate. Grow.</h1>
+
+            <p>
+                Explore exciting technical, cultural and sports events
+                happening on campus. Connect with students, learn new
+                skills and create unforgettable memories.
+            </p>
+
+            <a href="events.html" class="btn">Explore Events →</a>
+        </div>
+    </section>
+
+    <!-- Featured Events -->
+    <main>
+        <section>
+            <h2 class="section-title">Featured Events</h2>
+
+            <div class="events">
+
+                <div class="card">
+                    <img
+                        src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=700&q=80"
+                        alt="Technology conference">
+
+                    <div class="card-content">
+                        <span class="tag blue">Technical</span>
+                        <h3>Tech Fest 2026</h3>
+                        <p>
+                            Explore innovation, coding competitions,
+                            AI projects and exciting technology workshops.
+                        </p>
+                        <a href="events.html" class="btn">View Details →</a>
+                    </div>
+                </div>
+
+                <div class="card">
+
+                    
+                    <img
+                        src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=700&q=80"
+                        alt="Cultural festival">
+
+                    <div class="card-content">
+                        <span class="tag pink">Cultural</span>
+                        <h3>Cultural Day</h3>
+                        <p>
+                            Celebrate music, dance, creativity and
+                            the diverse talents of our students.
+                        </p>
+                        <a href="events.html" class="btn">View Details →</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img
+                        src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=700&q=80"
+                        alt="Sports competition">
+
+                    <div class="card-content">
+                        <span class="tag green">Sports</span>
+                        <h3>Inter-College Sports Meet</h3>
+                        <p>
+                            Showcase your talent, compete with other
+                            colleges and experience team spirit.
+                        </p>
+                        <a href="events.html" class="btn">View Details →</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
